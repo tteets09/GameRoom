@@ -1,0 +1,21 @@
+{
+  "name": "SystemsProgrammingBot",
+  "version": "1.0.0",
+  "description": "A discord bot being made for my systems programming class.",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "node .",
+    "dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "Tony Teets",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.1.0",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.4",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.1",
+    "mongoose": "^6.6.1"
+  }
+}
