@@ -9,6 +9,8 @@ const app = require('./functions/webpage/app')
 //{intents: 32767} allows all intents to be used from discord
 const client = new Client({intents: 32767});
 client.commands = new Collection();
+client.selectMenus = new Collection();
+client.modals = new Collection();
 client.commandArray = [];
 
 const functionFolder = fs.readdirSync(`./src/code/functions`);
@@ -26,6 +28,7 @@ for(const folder of functionFolder){
 
 //Executing the handlers
 client.handleEvents();
+client.handleComponents();
 client.handleCommands();
 
 //Logging into the discord bot
