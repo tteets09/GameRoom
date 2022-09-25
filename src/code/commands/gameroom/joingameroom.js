@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const GamePlayer = require('../../schemas/GamePlayer');
 const {Types} = require('mongoose');
 
@@ -22,14 +22,30 @@ module.exports = {
             //try and save the new player in the database
             player.save().catch(console.error);
 
-            await interaction.reply({
-                content: `You have been added to the database! Have fun playing!`,
+            //Create an embed
+            const createdUserEmbed = new EmbedBuilder()
+                .setTitle("Welcome! Have Fun")
+                .setDescription(`${commandExecutor.tag} you have been added to the database! You are ready to play!`)
+                .setColor("#9bd2fc")
+
+            interaction.reply({
+                embeds: [createdUserEmbed],
                 ephemeral: true
             });
         }else {
-            await interaction.reply({
-                content: `You are already in the database silly. You have played ${player.gamesPlayed} games!`,
-                ephemeral: true
+            const alreadyExistEmbed = new EmbedBuilder()
+                .setTitle("You are already registered silly!")
+                .setDescription("It seems you are already in the database! Thank you for playing!")
+                .setColor("#9bd2fc")
+                .addFields([
+                    {
+                        name: "Games Played:",
+                        value: `${player.gamesPlayed}`
+                    }
+                ])
+
+            interaction.reply({
+                embeds: [alreadyExistEmbed]
             });
         }
     }
