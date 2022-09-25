@@ -9,13 +9,13 @@ const client = new Client({intents: 32767});
 client.commands = new Collection();
 client.commandArray = [];
 
-const functionFolder = fs.readdirSync(`./src/functions`);
+const functionFolder = fs.readdirSync(`./src/code/functions`);
 
 //Looping through the folders in the ./src/functions folder.
 for(const folder of functionFolder){
     //Getting every file in the folder that ends with .js
     const functionFiles = fs
-        .readdirSync(`./src/functions/${folder}`)
+        .readdirSync(`./src/code/functions/${folder}`)
         .filter((file) => file.endsWith(".js"));
 
     //For every file require it.

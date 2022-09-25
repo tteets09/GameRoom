@@ -7,13 +7,13 @@ const fs = require('fs');
 module.exports = (client) => {
     client.handleCommands = async () => {
         //Get the folders in the ./src/commands folder
-        const commandFolders = fs.readdirSync(`./src/commands`);
+        const commandFolders = fs.readdirSync(`./src/code/commands`);
 
         //Loop through the folders in ./src/commands
         for(const folder of commandFolders){
             //Getting every file in .src/commands/${folder} that ends with .js
             const commandFile = fs
-                .readdirSync(`./src/commands/${folder}`)
+                .readdirSync(`./src/code/commands/${folder}`)
                 .filter((file) => file.endsWith(".js"));
 
             //Getting commands and commandArray from the client object
