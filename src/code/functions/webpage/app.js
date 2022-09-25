@@ -20,5 +20,22 @@ module.exports = (client) => {
 
         //Logging to console the server is running
         console.log(chalk.green("Webserver is running..."));
+
+        app.route('/')
+            .get((req, res) => {
+                res.render('index');
+            })
+
+        app.route('/join')
+            .get((req, res) => {
+                res.render('index');
+            })
+
+        app.route('/join/:gameId')
+            .get((req, res) => {
+                const gameId = req.params.gameId;
+                console.log(gameId);
+                res.render('join');
+            })
     }
 }
