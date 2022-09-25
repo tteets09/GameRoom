@@ -1,5 +1,6 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
+const { token } = process.env;
 const fs = require('fs');
 const chalk = require("chalk");
 
@@ -25,7 +26,7 @@ module.exports = (client) => {
         }
 
         const botId = '1023383096982241342';
-        const rest = new REST({ version: '9'}).setToken(process.env.token);
+        const rest = new REST().setToken(token);
 
         try {
             console.log('Started refreshing application (/) commands.');
