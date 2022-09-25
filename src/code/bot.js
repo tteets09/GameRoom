@@ -1,6 +1,7 @@
 require('dotenv').config();
 
-const { token } = process.env;
+const { token, database } = process.env;
+const { connect } = require('mongoose');
 const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 
@@ -22,6 +23,14 @@ for(const folder of functionFolder){
     for(const file of functionFiles) require(`./functions/${folder}/${file}`)(client);
 }
 
+//Executing the handlers
 client.handleEvents();
 client.handleCommands();
+
+//Logging into the discord bot
 client.login(token);
+
+//connecting to the database
+(async () => {
+    await connect(database).catch(console.error);
+})();
