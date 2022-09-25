@@ -15,7 +15,7 @@ module.exports = (client) => {
         app.set('view engine', 'ejs');
         app.use(bodyParser.urlencoded({extended: true}));
 
-        //Start listening on local host 3000
+        //Running the webserver on local host at port 3000
         app.listen(3000)
 
         //Logging to console the server is running
