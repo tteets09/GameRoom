@@ -45,7 +45,8 @@ module.exports = {
                 ])
 
             interaction.reply({
-                embeds: [alreadyExistEmbed]
+                embeds: [alreadyExistEmbed],
+                ephemeral: true
             });
         }
     }
