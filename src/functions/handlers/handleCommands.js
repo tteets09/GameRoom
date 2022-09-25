@@ -7,7 +7,7 @@ const fs = require('fs');
 module.exports = (client) => {
     client.handleCommands = async () => {
         //Get the folders in the ./src/commands folder
-        const commandFolders = fs.readdirSync(`.src/commands`);
+        const commandFolders = fs.readdirSync(`./src/commands`);
 
         //Loop through the folders in ./src/commands
         for(const folder of commandFolders){
