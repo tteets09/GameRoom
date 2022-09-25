@@ -5,17 +5,15 @@ module.exports = {
         .setName('ping')
         .setDescription('Returns my ping!'),
     async execute(interaction, client){
-        //Defers the reply until it gets the information needed to reply
+        //Defers the reply until it gets the answer it needs
         const message = await interaction.deferReply({
             fetchReply: true
         });
 
-        //Gets the information for the new message
-        const newMessage = `API Latency: ${client.ws.ping}
-            \nClient Ping: ${message.createdTimestamp - interaction.createdTimestamp}`;
+        //Gets the answer needed
+        const newMessage =  `API Latency: ${client.ws.ping}\nClient Ping: ${message.createdTimestamp - interaction.createdTimestamp}`;
 
-
-        //Send the new message that was generated
+        //Sends the new message
         await interaction.editReply({
             content: newMessage
         });
