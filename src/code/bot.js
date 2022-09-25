@@ -4,6 +4,7 @@ const { token, database } = process.env;
 const { connect } = require('mongoose');
 const { Client, Collection } = require('discord.js');
 const fs = require('fs');
+const app = require('./functions/webpage/app')
 
 //{intents: 32767} allows all intents to be used from discord
 const client = new Client({intents: 32767});
@@ -34,3 +35,6 @@ client.login(token);
 (async () => {
     await connect(database).catch(console.error);
 })();
+
+//Running the webpage
+client.runWeb();
