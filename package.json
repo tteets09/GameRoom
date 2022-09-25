@@ -2,7 +2,7 @@
   "name": "SystemsProgrammingBot",
   "version": "1.0.0",
   "description": "A discord bot being made for my systems programming class.",
-  "main": "src/bot.js",
+  "main": "src/code/bot.js",
   "scripts": {
     "test": "node .",
     "dev": "nodemon ."
