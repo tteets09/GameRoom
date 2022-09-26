@@ -1,9 +1,25 @@
-<h1>GameRoom Name: <%= roomName%></h1>
+<%- include("./partials/header") -%>
 
-<%if(error) {%>
-    <p><%= error %></p>
-<%}%>
-<form method="post" action='/join'>
-    <input type="password" name="roomPass" placeholder="Password">
-    <button type="submit" name="gameId" value=<%= gameId %>>Submit</button>
-</form>
+<div class="container">
+    <div class="container-content">
+        <div class="gameroom-titlearea">
+            <h1 class="title">GameRoom</h1>
+            <h3 class="room-name">Room Name:  <%= roomName %></h3>
+        </div>
+
+        <div class="form">
+            <% if(error) { %>
+                <p class="error"><%= error %></p>
+            <% } %>
+
+            <form method="post" action='/join'>
+                <label>
+                    <input class="password-field" type="password" name="roomPass" placeholder="Password">
+                </label>
+                <button class="submit-button" type="submit" name="gameId" value=<%= gameId %>>Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("./partials/footer") -%>
