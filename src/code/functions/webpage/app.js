@@ -14,7 +14,7 @@ module.exports = (client) => {
         const app = express();
 
         //Setting default settings
-        app.use(express.static('public'));
+        app.use(express.static(__dirname + '/public'));
         app.set('views', path.join(__dirname, '/views'));
         app.set('view engine', 'ejs');
         app.use(bodyParser.urlencoded({extended: true}));
@@ -27,7 +27,7 @@ module.exports = (client) => {
 
         app.route('/')
             .get((req, res) => {
-                res.render('index');
+                res.render('404');
             })
 
         app.route('/join')
@@ -53,7 +53,8 @@ module.exports = (client) => {
                     return;
                 });
 
-                if(gameRoom) res.render('join', {roomName: gameRoom.roomName, gameId: gameRoom._id, error: ''});
+                (gameRoom) ? res.render('join', {roomName: gameRoom.roomName, gameId: gameRoom._id, error: ''}) :
+                    res.render('404');
             })
     }
 }
