@@ -1,0 +1,9 @@
+<h1>GameRoom Name: <%= roomName%></h1>
+
+<%if(error) {%>
+    <p><%= error %></p>
+<%}%>
+<form method="post" action='/join'>
+    <input type="password" name="roomPass" placeholder="Password">
+    <button type="submit" name="gameId" value=<%= gameId %>>Submit</button>
+</form>
