@@ -5,7 +5,9 @@ const gameRoom = new Schema({
     roomName: String,
     roomPassword: String,
     gameType: String,
-    creatorId: String
-})
+    channelId: String,
+    creatorId: String,
+    joinedId: String
+});
 
 module.exports = model('GameRoom', gameRoom, 'GameRooms');
