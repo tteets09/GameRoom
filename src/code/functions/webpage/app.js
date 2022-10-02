@@ -1,12 +1,9 @@
 const express = require('express');
-const ejs = require('ejs');
 const chalk = require("chalk");
 const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const GameRoom = require('../../schemas/GameRoom');
-const Player = require('../../schemas/GamePlayer');
-const url = require('url');
 
 module.exports = (client) => {
     client.runWeb = async () => {
@@ -23,7 +20,7 @@ module.exports = (client) => {
         app.listen(3000)
 
         //Logging to console the server is running
-        console.log(chalk.green("Webserver is running..."));
+        console.log(chalk.magenta("Webserver is running..."));
 
         app.route('/')
             .get((req, res) => {
