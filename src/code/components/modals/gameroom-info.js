@@ -1,5 +1,5 @@
 const GameRoom = require('../../schemas/GameRoom');
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, ChannelType, PermissionsBitField } = require("discord.js");
 
 module.exports = {
     data: {
@@ -9,6 +9,25 @@ module.exports = {
         const gameroomName = interaction.fields.getTextInputValue(`gameroomName`);
         const gameroomPass = interaction.fields.getTextInputValue(`gameroomPass`);
 
+        //Creating channel
+        const gameRoomCategory = '1025956163164049418';
+
+        const channel = await interaction.guild.channels.create({
+            name: gameroomName,
+            type: ChannelType.GuildText,
+            parent: gameRoomCategory,
+            permissionOverwrites: [
+                {
+                    id: interaction.guild.id,
+                    deny: [PermissionsBitField.Flags.ViewChannel]
+                },
+                {
+                    id: interaction.user.id,
+                    allow: [PermissionsBitField.Flags.ViewChannel]
+                }
+            ]
+        });
+
         //Seeing if the user already has a room open
         const filter = {creatorId: interaction.user.id};
 
@@ -16,7 +35,8 @@ module.exports = {
             {
                 $set: {
                     roomName: gameroomName,
-                    roomPassword: gameroomPass
+                    roomPassword: gameroomPass,
+                    channelId: channel.id
                 }
             }
         ).catch(console.error);
@@ -29,8 +49,8 @@ module.exports = {
             .setColor('#9bd2fc')
             .setFields([
                 {
-                    name: 'Website:',
-                    value: `localhost:3000/join/${gameRoom._id}`
+                    name: 'Game Id:',
+                    value: `${gameRoom._id}`
                 },
                 {
                     name: 'Password:',
