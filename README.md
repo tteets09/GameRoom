@@ -7,10 +7,13 @@ src
 |-- code
 |    |--bot.js
 |    |-- commands
+|    |   |-- admin
+|    |   |   |-- data.js
 |    |   |-- gameroom
 |    |   |   |-- closeroom.js
 |    |   |   |-- createroom.js
-|    |   |   |-- joininggameroom.js
+|    |   |   |-- joingame.js
+|    |   |   |-- joingameroom.js
 |    |   |-- tools
 |    |       |-- ping.js
 |    |-- components
