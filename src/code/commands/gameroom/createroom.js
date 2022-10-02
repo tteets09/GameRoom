@@ -33,8 +33,8 @@ module.exports = {
                 .setColor('#9bd2fc')
                 .setFields([
                     {
-                        name: 'Website:',
-                        value: `localhost:3000/join/${gameRoom._id}`
+                        name: 'Game ID:',
+                        value: `${gameRoom._id}`
                     },
                     {
                         name: 'Password:',

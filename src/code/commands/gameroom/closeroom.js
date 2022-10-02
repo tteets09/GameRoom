@@ -20,6 +20,11 @@ module.exports = {
                 ephemeral: true
             });
         }else{
+            //Deleting the discord channel
+            const channel = await client.channels.cache.get(gameRoom.channelId);
+            channel.delete();
+
+            //Deleting the GameRoom
             await GameRoom.findOneAndRemove({creatorId: interaction.user.id}).catch(console.error);
 
             const embed = new EmbedBuilder()
