@@ -7,6 +7,20 @@ module.exports = {
         .setName('createroom')
         .setDescription('Creates a game room and returns the webpage to access.'),
     async execute(interaction, client){
+        const EMBED_COLOR = '#9bd2fc';
+
+        if(interaction.guild == null){
+            const embed= new EmbedBuilder()
+                .setTitle('Uhoh!')
+                .setDescription('You are not allowed to use that here!')
+                .setColor(EMBED_COLOR);
+
+            interaction.reply({
+                embeds: [embed]
+            });
+            return;
+        }
+
         //Seeing if the person is registered in the database already
         const player = await Player.findOne({discordId: interaction.user.id});
 
@@ -14,7 +28,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('Uhoh!')
                 .setDescription('It seems you have not ran the `/joingameroom` command yet. Please run this command so you are a registered player and you can have fun!!!')
-                .setColor('#9bd2fc')
+                .setColor(EMBED_COLOR)
 
             interaction.reply({
                 embeds: [embed],
@@ -30,7 +44,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle("Uhoh!")
                 .setDescription("It seems you already have a GameRoom open! Please close the one you have open if you want to start a new one. Here is the information to the one you already have open:")
-                .setColor('#9bd2fc')
+                .setColor(EMBED_COLOR)
                 .setFields([
                     {
                         name: 'Game ID:',

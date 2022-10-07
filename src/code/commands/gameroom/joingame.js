@@ -26,6 +26,18 @@ module.exports = {
     },
     async execute(interaction, client){
         const EMBED_COLOR = '#9bd2fc';
+
+        if(interaction.guild == null){
+            const embed= new EmbedBuilder()
+                .setTitle('Uhoh!')
+                .setDescription('You are not allowed to use that here!')
+                .setColor(EMBED_COLOR);
+
+            interaction.reply({
+                embeds: [embed]
+            });
+            return;
+        }
         const gameId = interaction.options.getString("gameid");
 
         //Checking if the player exists
@@ -89,7 +101,7 @@ module.exports = {
         const channel = client.channels.cache.get(gameRoom.channelId);
         await channel.permissionOverwrites.edit(interaction.user.id, {ViewChannel: true});
 
-        //Giving a welcome to the gameroom and telling the user the website and password for their room
+        /** TODO: CHANGE CODE BELOW */
         const welcomeEmbed = new EmbedBuilder()
             .setTitle('Welcome!')
             .setDescription("Welcome to GameRoom. Below is the information to the website you should go to " +
