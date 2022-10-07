@@ -35,22 +35,14 @@ src
 |    |   |   |-- handleCommands.js
 |    |   |   |-- handleComponents.js
 |    |   |   |-- handleEvents.js
-|    |   |-- webpage
-|    |       |-- app.js
-|    |       |-- public
-|    |       |   |-- css
-|    |       |       |-- style.css
-|    |       |-- views
-|    |           |-- 404.ejs
-|    |           |-- join.ejs
-|    |           |-- joinedGame.ejs
-|    |           |-- partials
-|    |               |-- footer.ejs
-|    |               |-- header.ejs
 |    |-- schemas
 |        |-- GamePlayer.js
 |        |-- GameRoom.js
 |-- demo_video
 |-- design
+|   |-- closeroomCommand.pdf
+|   |-- createroomCommand.pdf
+|   |-- joingameCommand.pdf
+|   |-- joingameroomCommand.pdf
 |-- self_review
 ```
