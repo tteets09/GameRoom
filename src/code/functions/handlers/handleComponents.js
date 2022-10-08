@@ -8,9 +8,15 @@ module.exports = (client) => {
             const componentFile = readdirSync(`./src/code/components/${folder}`)
                 .filter((file) => file.endsWith(".js"));
 
-            const { selectMenus, modals } = client;
+            const { buttons, selectMenus, modals } = client;
 
             switch(folder){
+                case "buttons":
+                    for(const file of componentFile){
+                        const button = require(`../../components/${folder}/${file}`);
+                        buttons.set(button.data.name, button);
+                    }
+                    break;
                 case "selectMenus":
                     for(const file of componentFile){
                         const menu = require(`../../components/${folder}/${file}`);

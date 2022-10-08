@@ -8,6 +8,7 @@ const fs = require('fs');
 //{intents: 32767} allows all intents to be used from discord
 const client = new Client({intents: 32767});
 client.commands = new Collection();
+client.buttons = new Collection();
 client.selectMenus = new Collection();
 client.modals = new Collection();
 client.commandArray = [];
