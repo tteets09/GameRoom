@@ -5,7 +5,7 @@ const {Types} = require('mongoose');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('joingameroom')
-        .setDescription('Creates a new user in database'),
+        .setDescription('Registers the player in the database as a GameRoom player.'),
     async execute(interaction, client){
         let player = await GamePlayer.findOne({discordId: interaction.user.id});
         const commandExecutor = interaction.user;
