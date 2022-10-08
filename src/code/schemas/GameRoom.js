@@ -4,7 +4,6 @@ const gameRoom = new Schema({
     _id: Schema.Types.ObjectId,
     roomName: String,
     roomPassword: String,
-    gameType: String,
     channelId: String,
     creatorId: String,
     joinedId: String
