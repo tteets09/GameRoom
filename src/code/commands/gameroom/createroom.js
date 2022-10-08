@@ -70,16 +70,16 @@ module.exports = {
             .setMaxValues(1)
             .setOptions(
                 new SelectMenuOptionBuilder({
-                    label: 'Game #1',
-                    value: 'Game1'
+                    label: 'Tic Tac Toe',
+                    value: 'tictactoe'
                 }),
                 new SelectMenuOptionBuilder({
-                    label: 'Game #2',
-                    value: 'Game2',
+                    label: 'Battle Dome',
+                    value: 'battledome',
                 }),
                 new SelectMenuOptionBuilder({
-                    label: 'Game #3',
-                    value: 'Game3'
+                    label: 'Rock Paper Scissors',
+                    value: 'rockpaperscissors'
                 })
             )
 
