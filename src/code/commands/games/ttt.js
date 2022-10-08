@@ -26,25 +26,6 @@ module.exports = {
             });
             return;
         }
-        const gameId = interaction.options.getString("gameid");
-
-        //Checking if the player exists
-        const player = await Player.findOne({discordId: interaction.user.id});
-
-
-        if(!player){
-            const embed = new EmbedBuilder()
-                .setTitle('Uhoh!')
-                .setDescription('It seems you have not ran the `/joingameroom` command yet. Please run this command so you are a registered player and you can have fun!!!')
-                .setColor(EMBED_COLOR)
-
-            interaction.reply({
-                embeds: [embed],
-                ephemeral: true
-            })
-
-            return;
-        }
 
         const game = new TicTacToe({language: 'en'});
 
