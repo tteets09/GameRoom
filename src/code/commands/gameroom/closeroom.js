@@ -33,23 +33,25 @@ module.exports = {
                 embeds: [embed],
                 ephemeral: true
             });
-        }else{
-            //Deleting the discord channel
-            const channel = await client.channels.cache.get(gameRoom.channelId);
-            channel.delete();
-
-            //Deleting the GameRoom
-            await GameRoom.findOneAndRemove({creatorId: interaction.user.id}).catch(console.error);
-
-            const embed = new EmbedBuilder()
-                .setTitle("You are set!")
-                .setDescription("You have now closed your GameRoom. Can't wait to play again sometime soon!")
-                .setColor(EMBED_COLOR);
-
-            interaction.reply({
-                embeds: [embed],
-                ephemeral: true
-            });
+            return;
         }
+
+        //Deleting the discord channel
+        const channel = await client.channels.cache.get(gameRoom.channelId);
+        channel.delete();
+
+        //Deleting the GameRoom
+        await GameRoom.findOneAndRemove({creatorId: interaction.user.id}).catch(console.error);
+
+        const embed = new EmbedBuilder()
+            .setTitle("You are set!")
+            .setDescription("You have now closed your GameRoom. Can't wait to play again sometime soon!")
+            .setColor(EMBED_COLOR);
+
+        interaction.reply({
+            embeds: [embed],
+            ephemeral: true
+        });
+
     }
 }

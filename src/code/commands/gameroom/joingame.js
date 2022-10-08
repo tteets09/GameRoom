@@ -48,7 +48,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('Uhoh!')
                 .setDescription('It seems you have not ran the `/joingameroom` command yet. Please run this command so you are a registered player and you can have fun!!!')
-                .setColor('#9bd2fc')
+                .setColor(EMBED_COLOR)
 
             interaction.reply({
                 embeds: [embed],
