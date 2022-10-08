@@ -101,22 +101,24 @@ module.exports = {
         const channel = client.channels.cache.get(gameRoom.channelId);
         await channel.permissionOverwrites.edit(interaction.user.id, {ViewChannel: true});
 
-        /** TODO: CHANGE CODE BELOW */
+        const gameType = gameRoom.gameType;
+        let gameTitle;
+        switch(gameType){
+            case "rockpaperscissors":
+                gameTitle = "Rock Paper Scissors";
+                break;
+            case "battledome":
+                gameTitle = "Battle Dome";
+                break;
+            case "tictactoe":
+                gameTitle = "Tic Tac Toe";
+                break;
+        }
+
         const welcomeEmbed = new EmbedBuilder()
             .setTitle('Welcome!')
-            .setDescription("Welcome to GameRoom. Below is the information to the website you should go to " +
-                "and the password of the room that was set by the creator.")
-            .setColor(EMBED_COLOR)
-            .setFields([
-                {
-                    name: 'Website',
-                    value: `localhost:3000/join/${gameRoom._id}`
-                },
-                {
-                    name: 'Password',
-                    value: `${gameRoom.roomPassword}`
-                }
-            ])
+            .setDescription(`Welcome to GameRoom. You are playing ${gameTitle}. To start the game run /play.`)
+            .setColor(EMBED_COLOR);
 
         //Stating who joined the game
         const joinEmbed = new EmbedBuilder()
@@ -125,6 +127,6 @@ module.exports = {
 
         channel.send({
             embeds: [welcomeEmbed, joinEmbed]
-        });
+        })
     }
 }
