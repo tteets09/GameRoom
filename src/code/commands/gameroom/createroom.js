@@ -5,7 +5,7 @@ const Player = require('../../schemas/GamePlayer');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('createroom')
-        .setDescription('Creates a game room and returns the webpage to access.'),
+        .setDescription('Creates a GameRooms and returns the information for the other person to join.'),
     async execute(interaction, client){
         const EMBED_COLOR = '#9bd2fc';
 
@@ -64,28 +64,6 @@ module.exports = {
             return;
         }
 
-        const menu = new SelectMenuBuilder()
-            .setCustomId(`game-options`)
-            .setMinValues(1)
-            .setMaxValues(1)
-            .setOptions(
-                new SelectMenuOptionBuilder({
-                    label: 'Tic Tac Toe',
-                    value: 'tictactoe'
-                }),
-                new SelectMenuOptionBuilder({
-                    label: 'Battle Dome',
-                    value: 'battledome',
-                }),
-                new SelectMenuOptionBuilder({
-                    label: 'Rock Paper Scissors',
-                    value: 'rockpaperscissors'
-                })
-            )
-
-        await interaction.reply({
-            components: [new ActionRowBuilder().addComponents(menu)],
-            ephemeral: true
-        });
+        /**TODO: REIMPLEMENT CREATE GAME COMMAND*/
     }
 }
