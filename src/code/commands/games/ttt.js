@@ -50,7 +50,7 @@ module.exports = {
                 {discordId: loserId},
                 {
                     $set: {
-                        gamesPlayed: (this.gamespLayed) ? this.gamesPlayed++ : 1,
+                        gamesPlayed: (this.gamesPlayed) ? this.gamesPlayed++ : 1,
                         gamesLost: (this.gamesLost) ? this.gamesLost++ : 1
                     }
                 }
