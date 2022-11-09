@@ -38,7 +38,10 @@ module.exports = {
 
         //Deleting the discord channel
         const channel = await client.channels.cache.get(gameRoom.channelId);
-        channel.delete();
+
+        if(channel){
+            channel.delete();
+        }
 
         //Deleting the GameRoom
         await GameRoom.findOneAndRemove({creatorId: interaction.user.id}).catch(console.error);
