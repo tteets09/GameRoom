@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, SelectMenuBuilder, ActionRowBuilder, SelectMenuOptionBuilder, EmbedBuilder} = require('discord.js');
+const { SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle,  EmbedBuilder, ActionRow} = require('discord.js');
 const GameRoom = require('../../schemas/GameRoom');
 const Player = require('../../schemas/GamePlayer');
 
@@ -7,6 +7,7 @@ module.exports = {
         .setName('createroom')
         .setDescription('Creates a GameRooms and returns the information for the other person to join.'),
     async execute(interaction, client){
+
         const EMBED_COLOR = '#9bd2fc';
 
         if(interaction.guild == null){
@@ -64,6 +65,25 @@ module.exports = {
             return;
         }
 
-        /**TODO: REIMPLEMENT CREATE GAME COMMAND*/
+        const roomInfo = new ModalBuilder()
+            .setCustomId(`roomName`)
+            .setTitle("GameRoom");
+
+        const roomName = new TextInputBuilder()
+            .setCustomId(`gameRoomName`)
+            .setLabel("Room Name:")
+            .setRequired(true)
+            .setStyle(TextInputStyle.Short);
+
+        const roomPassword = new TextInputBuilder()
+            .setCustomId(`gameRoomPass`)
+            .setLabel("Password:")
+            .setRequired(true)
+            .setStyle(TextInputStyle.Short);
+
+        roomInfo.addComponents(new ActionRowBuilder().addComponents(roomName),
+            new ActionRowBuilder().addComponents(roomPassword));
+
+        await interaction.showModal(roomInfo);
     }
 }
