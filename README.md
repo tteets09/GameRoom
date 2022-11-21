@@ -8,43 +8,43 @@ src
 |   |--bot.js
 |   |-- commands
 |   |   |-- admin
-|   |   |   `- data.js
+|   |   |   |- data.js
 |   |   |-- gameroom
 |   |   |   |-- closeroom.js
 |   |   |   |-- createroom.js
 |   |   |   |-- joingame.js
-|   |   |   `-- joingameroom.js
+|   |   |   |-- joingameroom.js
 |   |   |-- games
-|   |   |   `-- ttt.js
-|   |   `-- tools
-|   |       `-- ping.js
+|   |   |   |-- ttt.js
+|   |   |-- tools
+|   |       |-- ping.js
 |   |-- components
-|   |   `-- modals
-|   |       `-- creategameModal.js
+|   |   |-- modals
+|   |       |-- creategameModal.js
 |   |-- events
 |   |   |-- client
 |   |   |   |-- interactionCreate.js
-|   |   |   `-- ready.js
-|   |   `-- mongo
+|   |   |   |-- ready.js
+|   |   |-- mongo
 |   |       |-- connected.js
 |   |       |-- connecting.js
 |   |       |-- disconnected.js
-|   |       `-- err.js
+|   |       |-- err.js
 |   |-- functions
 |   |   |-- handlers
 |   |   |   |-- handleCommands.js
 |   |   |   |-- handleComponents.js
-|   |   |   `-- handleEvents.js
-|   `-- schemas
+|   |   |   |-- handleEvents.js
+|   |-- schemas
 |       |-- GamePlayer.js
-|       `-- GameRoom.js
+|       |-- GameRoom.js
 |-- demo_video
-|   `-- DemoVideo.mp4
+|   |-- DemoVideo.mp4
 |-- design
 |   |-- closeroomCommand.pdf
 |   |-- createroomCommand.pdf
 |   |-- joingameCommand.pdf
-|   `-- joingameroomCommand.pdf
-`-- self_review
-    ` tony_teets.pdf
+|   |-- joingameroomCommand.pdf
+|-- self_review
+    | tony_teets.pdf
 ```
