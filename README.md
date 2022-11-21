@@ -48,14 +48,14 @@ games together in one channel just for them. Why don't you try it out!</p>
 ## Usage
 <p>There are a few simple commands that this bot has. If you look at the table below you can see what they are what they mean.</p>
 
-| Command       | Description                                                                                                     |
-|---------------|-----------------------------------------------------------------------------------------------------------------|
-| /ping         | This command is used to test latency with the bot                                                               |
-| /joingameroom | Adds the user to the GameRoom database so they can play games                                                   |
-| /createroom   | Asks the user to give a room name and password and creates a GameRoom for the user with the specified arguments |
-| /joingame     | Used by the person trying to join a room. If all information is correct, they will be added to the game.        |
-| /ttt          | Used to run the Tic-Tac-Toe game                                                                                |
-| /closeroom    | Used to close the GameRoom room.                                                                                |
+| Command                           | Description                                                                                                     |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| /ping                             | This command is used to test latency with the bot                                                               |
+| /joingameroom                     | Adds the user to the GameRoom database so they can play games                                                   |
+| /createroom                       | Asks the user to give a room name and password and creates a GameRoom for the user with the specified arguments |
+| /joingame [gameid] [gamepassword] | Used by the person trying to join a room. If all information is correct, they will be added to the game.        |
+| /ttt                              | Used to run the Tic-Tac-Toe game                                                                                |
+| /closeroom                        | Used to close the GameRoom room.                                                                                |
 
 
 
